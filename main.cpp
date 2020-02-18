@@ -31,25 +31,42 @@ int main(int argc, char **argv) {
 
 static void Copy(char filenamein[], char filenameout[])
 {
-	ifstream fin(filenamein);
-	ifstream fout(filenameout);
+	//The Input file is passed to the Infile filestream
+	ifstream InFile(filenamein);
+	// The output file is passed to the Outfile file stream
+	ofstream OutFile(filenameout);
 	
-	
-	if (fin.is_open()){
+	// Check if the input file is open, if it's open
+	if (InFile.is_open()){
 
+		// print to the console file is open
 		cout << "file is open" << endl;
-		// stores the character from your filepath
-		char ReadEveryCharacter;
-		char OutPutEverCharacter;
-			while (fin.good()){
-				
-				// get every character and put it in
-				fin.get(ReadEveryCharacter);
-				cout << (ReadEveryCharacter);
-				
-	
-	}
 		
+		// create a character array to to read the character 
+		char ReadEveryCharacter;
+		
+				// while the input file is good, keep check this process
+			while (InFile.good()){
+				
+				// check if the output file is good as well 
+				if (OutFile.good())
+					{
+					
+						//use the fstream method to get every character in the 
+							// input file and store them in ReadEveryChacter
+						InFile.get(ReadEveryCharacter);
+
+						// Put the character in the ReadEveryCharacter in the output file stream
+						OutFile.put(ReadEveryCharacter);
+
+						// print to the console the read characters
+						cout << (ReadEveryCharacter);
+					}
+				
 	}
-	fin.close();
+			// close the output file
+			OutFile.close();
+	}
+	// close the input file.. Good practice!!!!
+	InFile.close();
 	};
