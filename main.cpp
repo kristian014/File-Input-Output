@@ -42,7 +42,7 @@ static void Copy(char filenamein[], char filenameout[])
 		// print to the console file is open
 		cout << "file is open" << endl;
 		
-		// create a character array to to read the character 
+		// create a character array to to read the characters
 		char ReadEveryCharacter;
 		
 				// while the input file is good, keep check this process
